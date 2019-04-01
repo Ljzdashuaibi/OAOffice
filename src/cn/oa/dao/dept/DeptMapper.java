@@ -11,6 +11,7 @@ public interface DeptMapper {
 	
 	public List<Dept> getDeptList();
 	
+	
 	public int addDept(Dept dept);
 	
 	
