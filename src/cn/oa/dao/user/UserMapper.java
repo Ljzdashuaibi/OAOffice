@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import cn.oa.pojo.User;
 public interface UserMapper {
-     //login
+
+     //login6666666666
 	public User getLoginUser(@Param("account")String account);
 	//员工列表
 	public List<User> getUserList();
