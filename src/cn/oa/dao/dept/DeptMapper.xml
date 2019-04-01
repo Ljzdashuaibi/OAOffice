@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.oa.dao.dept.DeptMapper">
+
+
+	<select id="getDeptList" resultType="Dept">
+	   SELECT *FROM dept
+	</select>
+	
+	
+	<insert id="addDept" parameterType="Dept">
+    	INSERT INTO dept (id, name, number)VALUES(#{id}, #{name}, #{number});
+    </insert>
+</mapper>
