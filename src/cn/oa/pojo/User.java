@@ -3,7 +3,7 @@ package cn.oa.pojo;
 import java.util.Date;
 
 public class User {
-	//李金钊大傻逼2222222222
+	//李金钊大傻逼66666
 	private Integer id;
     private String account;//登录名
     private String password;
