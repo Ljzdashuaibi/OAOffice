@@ -5,16 +5,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="cn.oa.dao.user.UserMapper">
 	  <select id="getLoginUser" resultType="User">
 	    SELECT *FROM user u
-	    <trim prefix="where" prefixOverrides="and | or">
+	    <!-- <trim prefix="where" prefixOverrides="and | or">
 	      <if test="account !=null">
 	          and u.account = #{account}
 	      </if>
-	    </trim>
+	    </trim> -->
 	</select>
 	<!-- 员工列表 -->
 	<select id="getUserList" resultType="User">
 	    SELECT u.*,r.name as deptName FROM USER u,dept r WHERE u.dept_id = r.id
 	</select>
+	
 	
 	<update id="modify" parameterType="User">
         update user 

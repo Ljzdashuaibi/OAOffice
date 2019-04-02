@@ -26,7 +26,6 @@ public class UserController {
 			return "login";
 	}
 	
-	
 	@Resource
 	private UserService userBiz;
 	@RequestMapping("/")//登录
@@ -62,9 +61,9 @@ public class UserController {
 		model.addAttribute("user",user);
 		return "updateUser";
 	}
+	
 	@RequestMapping(value="/editUser.html")
 	public String modifyUserSave(User user,HttpSession session){
-		
 		user.setModifyBy(((User)session.getAttribute(Constants.USER_SESSION)).getId());
 		user.setModifyDate(new Date());
 		if (userBiz.modify(user)) {

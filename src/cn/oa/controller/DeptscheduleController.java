@@ -59,7 +59,4 @@ public class DeptscheduleController {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+list);
 		return "searchDeptSchedule";
 	}
-	
-	
-	
 }
