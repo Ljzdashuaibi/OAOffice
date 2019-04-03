@@ -15,5 +15,4 @@ public interface DeptMapper {
 	public int addDept(Dept dept);
 	
 	
-	
 }

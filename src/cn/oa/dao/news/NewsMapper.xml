@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.oa.dao.news.NewsMapper">
+
+    <!-- 查询新闻  -->
+    <select id="newslist" resultType="News">
+    	SELECT * FROM news
+	</select>
+	
+	<!-- 发布新闻 -->
+	<insert id="addnews" parameterType="News">
+		INSERT INTO news( `title`, `content`, `user_id`, `create_time`)
+		VALUES(#{title}, #{content},#{userid}, #{createTime});
+    </insert>
+    
+    
+    <!-- 删除 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM `news` 
+	WHERE `id` =#{id}  ;
+		
+	</delete>
+    
+	
+</mapper>

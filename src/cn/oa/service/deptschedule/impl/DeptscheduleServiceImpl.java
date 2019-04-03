@@ -17,7 +17,6 @@ public class DeptscheduleServiceImpl implements DeptscheduleService{
 	private DeptscheduleMapper deptscheduleMapper;
 
 	public boolean addschedule(Deptschedule deptschedule) {
-		
 		boolean flag = false;
 		int num =0;
 		num=deptscheduleMapper.addschedule(deptschedule);
@@ -27,7 +26,7 @@ public class DeptscheduleServiceImpl implements DeptscheduleService{
 		}else{
 			System.out.println("add failed!");
 		}
-		return true;
+		return flag;
 	}
 
 	

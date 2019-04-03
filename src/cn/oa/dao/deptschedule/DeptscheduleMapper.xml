@@ -4,18 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.oa.dao.deptschedule.DeptscheduleMapper">
 	
-	
 	<!-- 添加日程 -->
 	<insert id="addschedule" parameterType="Deptschedule">
-		INSERT INTO dept_schedule
-				(start_date, end_date, position, content, dept_id)
+		INSERT INTO dept_schedule (start_date, end_date, position, content, dept_id)
 		VALUES( #{startdate}, #{enddate}, #{position}, #{content},#{deptid});
     </insert>
     
     <!-- 查询日程 -->
     <select id="dulelist" resultType="Deptschedule">
     	SELECT u.*,r.name AS deptName FROM dept_schedule u,dept r WHERE u.dept_id = r.id
-	   <!-- SELECT * FROM dept_schedule -->
 	</select>
     
 </mapper>

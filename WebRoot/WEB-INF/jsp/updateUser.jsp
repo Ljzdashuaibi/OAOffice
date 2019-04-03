@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="statics/lib/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="statics/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="statics/css/wukong-ui.css">
-	<link rel="stylesheet" href="statics/bootstrap/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="statics/bootstrap/css/bootstrap-select.min.css"> 
     <script type="text/javascript" src="statics/bootstrap/js/bootstrap-select.min.js"></script>
 </head>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,8 +28,8 @@
 		<div class="col-lg-12">
 			<ul class="breadcrumb wk-breadcrumb">
 				<li><a href="#">企业信息管理系统</a></li>
-	            <li><a href="#">日常管理</a></li>
-	            <li><a href="#">查询部门日程</a></li>
+	            <li><a href="#">新闻管理</a></li>
+	            <li><a href="#">新闻查询</a></li>
 			</ul>
 		</div>
 	</div>
@@ -54,22 +55,21 @@
 					<thead>
 						<tr>
 							<th>选择</th>
-							<th>所属部门</th>
-							<th>日程内容</th>
-							<th>工作地点</th>
-							<th>开始时间</th>
-							<th>结束时间</th>
+							<th>新闻标题</th>
+							<th>新闻内容</th>
+							<th>发布人</th>
+							<th>发布时间</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${deptSchedules}" var="var">
+						<c:forEach items="${news}" var="var">
 						<tr>
-							<td><input id="grid_${var.id}" name="workerRadio" type="radio" aria-label="选择" /></td>
-							<td>${var.deptName}</td>
+							<td><input id="grid_${var.id}" name="workerRadio"
+								type="radio" aria-label="选择" /></td>
+							<td>${var.title}</td>
 							<td>${var.content}</td>
-							<td>${var.position}</td>
-							<td><fmt:formatDate value='${var.startdate}' pattern='yyyy-MM-dd' /></td>
-							<td><fmt:formatDate value='${var.enddate}' pattern='yyyy-MM-dd' /></td>
+							<td>管理员</td>
+							<td><fmt:formatDate value="${var.createTime}" pattern="yyyy-MM-dd  HH:mm:ss" /></td>
 						</tr>
 						</c:forEach>
 					</tbody>
@@ -102,7 +102,7 @@
 
 	<script>
 
-	$("#deleteBtn").on("click", function() {
+    $("#deleteBtn").on("click", function() {
         var id = "";
         $(":radio").each(function() {
             if ($(this).is(":checked")) {
@@ -113,7 +113,7 @@
         if (id != "") {
             $("#deleteConfirm").modal();
             $("#deleteBtnOK").on("click", function() {
-                location.href = "<%=basePath%>deleteDeptSchedule/" + id + ".html";
+                location.href = "<%=basePath%>deleteNews/" + id + ".html";
             });
         }
     });
@@ -129,9 +129,10 @@
         });         
 
         if (id != "") {
-			location.href = "<%=basePath%>updateDeptSchedule/" + id + ".html";
+			location.href = "<%=basePath%>updateNews/" + id + ".html";
         }
     });
+
      
 </script>
 </body>

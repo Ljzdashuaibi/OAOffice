@@ -20,7 +20,6 @@ import cn.oa.service.dept.DeptService;
 import cn.oa.service.deptschedule.DeptscheduleService;
 import cn.oa.tools.Constants;
 
-
 @Controller
 public class DeptscheduleController {
 	
@@ -59,7 +58,4 @@ public class DeptscheduleController {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+list);
 		return "searchDeptSchedule";
 	}
-	
-	
-	
 }
