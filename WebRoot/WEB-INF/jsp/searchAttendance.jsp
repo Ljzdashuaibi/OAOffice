@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,25 +28,11 @@
 		<div class="col-lg-12">
 			<ul class="breadcrumb wk-breadcrumb">
 				<li><a href="#">企业信息管理系统</a></li>
-	            <li><a href="#">日常管理</a></li>
-	            <li><a href="#">查询部门日程</a></li>
+	            <li><a href="#">考勤管理</a></li>
+	            <li><a href="#">考勤数据查询</a></li>
 			</ul>
 		</div>
 	</div>
-
-	<div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default wk-panel wk-table-tools-panel">
-                <div class="panel-heading">
-                    工具栏 Tools
-                </div>
-                <div class="panel-body">
-	                <button id="deleteBtn" type="button" class="btn btn-default wk-tool-btn">删除</button>
-	                <button id="updateBtn" type="button" class="btn btn-default wk-tool-btn">编辑</button>
-                 </div>
-            </div>
-        </div>
-    </div>
 
 	<div class="row">
 		<div class="col-lg-12">
@@ -53,26 +40,29 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
-							<th>选择</th>
-							<th>所属部门</th>
-							<th>日程内容</th>
-							<th>工作地点</th>
-							<th>开始时间</th>
-							<th>结束时间</th>
+							<th>学生姓名</th>
+							<th>考勤日期</th>
+							<th>应出勤天数</th>
+							<th>请假天数</th>
+							<th>旷工天数</th>
+							<th>调休天数</th>
+							<th>实际出勤天数</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${deptSchedules}" var="var">
-						<tr>
-							<td><input id="grid_${var.id}" name="workerRadio" type="radio" aria-label="选择" /></td>
-							<td>${var.deptName}</td>
-							<td>${var.content}</td>
-							<td>${var.position}</td>
-							<td><fmt:formatDate value='${var.startdate}' pattern='yyyy-MM-dd' /></td>
-							<td><fmt:formatDate value='${var.enddate}' pattern='yyyy-MM-dd' /></td>
-						</tr>
+						<c:forEach items="${attendances}" var="var">
+							<tr>
+								<td>${var.userName}</td>
+								<td><fmt:formatDate value="${var.recordDate}" pattern="yyyy-MM-dd" /></td>
+								<td>${var.amount}</td>
+								<td>${var.leave}</td>
+								<td>${var.absenteeism}</td>
+								<td>${var.vacation}</td>
+								<td>${var.realAmount}</td>
+							</tr>
 						</c:forEach>
 					</tbody>
+					
 				</table>
 			</div>
 		</div>
@@ -101,7 +91,7 @@
 
 	<script>
 
-	$("#deleteBtn").on("click", function() {
+    $("#deleteBtn").on("click", function() {
         var id = "";
         $(":radio").each(function() {
             if ($(this).is(":checked")) {
@@ -112,7 +102,7 @@
         if (id != "") {
             $("#deleteConfirm").modal();
             $("#deleteBtnOK").on("click", function() {
-                location.href = "<%=basePath%>deleteDeptSchedule/" + id + ".html";
+                location.href = "<%=basePath%>deleteStudent/" + id + ".html";
             });
         }
     });
@@ -128,9 +118,10 @@
         });         
 
         if (id != "") {
-			location.href = "<%=basePath%>updateDeptSchedule/" + id + ".html";
+			location.href = "<%=basePath%>updateStudent/" + id + ".html";
         }
     });
+
      
 </script>
 </body>
